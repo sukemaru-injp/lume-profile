@@ -1,18 +1,19 @@
 import lume from "lume/mod.ts";
 import favicon from "lume/plugins/favicon.ts";
+import jsx from "lume/plugins/jsx.ts";
 
 const site = lume({
   src: "./src",
   server: {
-    open: true
-  }
+    open: true,
+  },
 });
-
-site.use(favicon({
-  input: "/profile.png",
-}));
-
 site.add("/styles.css");
+
+site.use(jsx());
+site.use(favicon({
+  input: "/_assets/profile.png",
+}));
 
 // Basic function to minify CSS
 function minifyCSS(css: string) {

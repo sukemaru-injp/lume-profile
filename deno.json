@@ -65,5 +65,17 @@
       ]
     }
   },
+  "fmt": {
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "_config.ts"
+    ],
+    "indentWidth": 2,
+    "lineWidth": 80,
+    "semiColons": true,
+    "singleQuote": false,
+    "useTabs": false
+  },
   "lock": false
 }
