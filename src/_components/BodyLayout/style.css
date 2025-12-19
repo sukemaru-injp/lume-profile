@@ -4,13 +4,29 @@
 }
 
 .footer {
+  display: flex;
   flex-direction: column;
+  gap: 16px;
   justify-content: center;
   background-color: #dcf5f5;
   color: #808080;
   padding: 18px 0;
 }
 
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.iconWrapper {
+  height: 36px;
+  width: 36px;
+  color: #808080;
+}
+
 .text {
   text-align: center;
+  font-size: 1.2rem;
 }

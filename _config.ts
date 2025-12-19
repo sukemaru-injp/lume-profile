@@ -1,6 +1,7 @@
 import lume from "lume/mod.ts";
 import favicon from "lume/plugins/favicon.ts";
 import jsx from "lume/plugins/jsx.ts";
+import icons from "lume/plugins/icons.ts";
 
 const site = lume({
   src: "./src",
@@ -11,6 +12,8 @@ const site = lume({
 site.add("/styles.css");
 
 site.use(jsx());
+site.use(icons());
+
 site.use(favicon({
   input: "/_assets/profile.png",
 }));
