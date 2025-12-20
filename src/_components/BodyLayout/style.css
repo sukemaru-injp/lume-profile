@@ -3,6 +3,15 @@
   min-height: 100vh;
 }
 
+.header {
+  padding: 0 4px;
+  background-color: #008b8b;
+  color: #dcf5f5;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
 .footer {
   display: flex;
   flex-direction: column;
