@@ -1,3 +1,17 @@
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #808080;
+  padding: 16px 0;
+}
+
+.anchor {
+  text-decoration: none;
+  color: #808080;
+  font-size: 1.2rem;
+}
+
 .main {
   background-color: #ffffe0;
   min-height: 100vh;

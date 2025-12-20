@@ -5,6 +5,11 @@ export default function ({ children, comp }: Lume.Data) {
         <h1 class="title">sukemaru.net</h1>
       </header>
       <main class="main">
+        <div class="nav">
+          <a href="/" class="anchor">About Me</a>
+          <span>&nbsp;/&nbsp;</span>
+          <a href="/blogs" class="anchor">Blogs</a>
+        </div>
         {children}
       </main>
       <footer class="footer">

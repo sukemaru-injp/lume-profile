@@ -1,4 +1,4 @@
-export const title = "sukemaru|articles";
+export const title = "sukemaru|aboutme";
 export const layout = "_includes/layout.tsx";
 
 export default (_data: Lume.Data, _helpers: Lume.Helpers) => (
