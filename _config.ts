@@ -9,7 +9,7 @@ const site = lume({
     open: true,
   },
 });
-site.add("/styles.css");
+site.add("/reset.css");
 
 site.use(jsx());
 site.use(icons());

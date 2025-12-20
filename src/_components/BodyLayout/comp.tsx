@@ -10,17 +10,34 @@ export default function ({ children, comp }: Lume.Data) {
       <footer class="footer">
         <div class="icons">
           <div class="iconWrapper">
-            <comp.GitHubIcon />
+            <a
+              href="https://github.com/sukemaru-injp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <comp.GitHubIcon />
+            </a>
           </div>
           <div class="iconWrapper">
-            <comp.FacebookIcon />
+            <a
+              href="https://www.facebook.com/profile.php?id=100029782609298"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <comp.FacebookIcon />
+            </a>
           </div>
-                    <div class="iconWrapper">
-            <comp.XIcon />
+          <div class="iconWrapper">
+            <a
+              href="https://x.com/Inakamon_0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <comp.XIcon />
+            </a>
           </div>
-
         </div>
-        <p class="text">&copy;{new Date().getFullYear()} - sukemaru</p>
+        <p class="text">&copy; {new Date().getFullYear()} - sukemaru</p>
       </footer>
     </>
   );

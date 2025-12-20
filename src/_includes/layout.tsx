@@ -8,7 +8,7 @@ export default (
       <head>
         <title>{title}</title>
         <meta name="description" content="sukemaru.net | By sukemaru" />
-        <link rel="stylesheet" href="/styles.css" />
+        <link rel="stylesheet" href="/reset.css" />
         <link rel="stylesheet" href="/style.css" />
       </head>
       <body>
