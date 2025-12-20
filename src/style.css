@@ -5,3 +5,19 @@
   margin: 0 auto;
   gap: 16px;
 }
+.image-wrapper {
+  width: 64px;
+  height: 64px;
+}
+
+.img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 12px;
+}
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}

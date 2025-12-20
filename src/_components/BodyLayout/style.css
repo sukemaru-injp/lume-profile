@@ -12,17 +12,8 @@
 }
 
 .main {
-  background-color: #ffffe0;
+  background-color: #dcf5f5;
   min-height: 100vh;
-}
-
-.header {
-  padding: 0 4px;
-  background-color: #008b8b;
-  color: #dcf5f5;
-  height: 60px;
-  display: flex;
-  align-items: center;
 }
 
 .footer {

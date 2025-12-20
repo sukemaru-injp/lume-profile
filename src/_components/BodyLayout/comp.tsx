@@ -1,12 +1,9 @@
 export default function ({ children, comp }: Lume.Data) {
   return (
     <>
-      <header class="header">
-        <h1 class="title">sukemaru.net</h1>
-      </header>
       <main class="main">
         <div class="nav">
-          <a href="/" class="anchor">About Me</a>
+          <a href="/" class="anchor">About</a>
           <span>&nbsp;/&nbsp;</span>
           <a href="/blogs" class="anchor">Blogs</a>
         </div>

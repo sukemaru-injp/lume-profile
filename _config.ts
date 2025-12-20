@@ -18,6 +18,8 @@ site.use(favicon({
   input: "/_assets/profile.png",
 }));
 
+site.copy("_assets");
+
 // Basic function to minify CSS
 function minifyCSS(css: string) {
   return css
