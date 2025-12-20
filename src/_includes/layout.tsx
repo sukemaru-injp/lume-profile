@@ -16,6 +16,11 @@ export default (
           {children}
         </comp.BodyLayout>
       </body>
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-EDV6N0DZYS"
+      />
+      <script src="/_assets/ga4.js" />
     </html>
   </>
 );
