@@ -1,8 +1,8 @@
 export const title = "sukemaru|blogs";
 export const layout = "_includes/layout.tsx";
 
-export default (_data: Lume.Data, _helpers: Lume.Helpers) => (
-  <>
-    <h1>Blogs</h1>
-  </>
+export default ({ comp }: Lume.Data, _helpers: Lume.Helpers) => (
+  <div class="page-wrapper">
+    <comp.Title>Blogs</comp.Title>
+  </div>
 );

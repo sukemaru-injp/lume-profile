@@ -9,7 +9,6 @@
 .anchor {
   text-decoration: none;
   color: #808080;
-  font-size: 1.2rem;
 }
 
 .main {
@@ -44,8 +43,8 @@
 }
 
 .iconWrapper {
-  height: 36px;
-  width: 36px;
+  height: 24px;
+  width: 24px;
   color: #808080;
 }
 
