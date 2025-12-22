@@ -24,4 +24,20 @@ cms.collection({
   ],
 });
 
+cms.document({
+  name: "personalDevelopment",
+  store: "src:posts/personalDevelopment.json",
+  fields: [
+    {
+      name: "list",
+      type: "object-list",
+      fields: [
+        { name: "title", type: "text" },
+        { name: "description", type: "textarea" },
+        { name: "url", type: "url" },
+      ],
+    },
+  ],
+});
+
 export default cms;
