@@ -64,13 +64,17 @@
       "exclude": [
         "no-import-prefix"
       ]
-    }
+    },
+    "exclude": [
+      "**/*.js"
+    ]
   },
   "fmt": {
     "include": [
       "src/**/*.ts",
       "src/**/*.tsx",
-      "_config.ts"
+      "_config.ts",
+      "_cms.ts"
     ],
     "indentWidth": 2,
     "lineWidth": 80,

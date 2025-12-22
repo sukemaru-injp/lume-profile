@@ -2,6 +2,7 @@ import lume from "lume/mod.ts";
 import favicon from "lume/plugins/favicon.ts";
 import jsx from "lume/plugins/jsx.ts";
 import icons from "lume/plugins/icons.ts";
+import works from "./src/posts/works.json" with { type: "json" };
 
 const site = lume({
   src: "./src",
@@ -20,6 +21,8 @@ site.use(favicon({
 
 site.copy("_assets");
 
+site.data("works", works);
+
 // Basic function to minify CSS
 function minifyCSS(css: string) {
   return css
@@ -36,4 +39,5 @@ site.process([".css"], (files) => {
 });
 
 site.ignore("README.md");
+
 export default site;
