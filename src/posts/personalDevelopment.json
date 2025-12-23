@@ -1,7 +1,9 @@
 {
   "list": [
     {
-      "title": "Emotion-snap"
+      "title": "Emotion-snap",
+      "description": "結婚式の余興用に作った。写真をアップロードし、感情を検出し、感情的な反応に基づいて参加者をランク付けするアプリ",
+      "url": "https://emotion-snap.vercel.app/"
     }
   ]
 }

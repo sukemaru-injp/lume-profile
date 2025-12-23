@@ -15,6 +15,7 @@ const WorkView = (props: {
   const formattedEndDate = props.endDate
     ? dayjs(props.endDate).format("YYYY.MM")
     : "現在";
+
   return (
     <div class="work-row">
       <div class="work-head">
