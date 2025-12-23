@@ -33,28 +33,28 @@
   "list": [
     {
       "title": "Sapeet株式会社",
-      "description": "カルティ シセイカルテ/マルチカルテの開発に従事",
+      "description": "治療院向けのソフトウェアカルティシセイカルテ/マルチカルテの開発",
       "url": "https://sapeet.com/",
       "startDate": "2025-05-12",
       "techs": "React/Hono/Typescript/AWS"
     },
     {
       "title": "Alp株式会社",
-      "description": "Scalebase:サブスクリプションビジネスにおける、契約管理・請求管理などを行うBtoB SaaS開発。\nScalebaseペイメント:2023年リリースの請求書/債権管理サービスの開発に従事  Next.js/Scala/PlayFrameworkでFE/BE開発",
+      "description": "Scalebase: サブスクリプションビジネスにおける、契約管理・請求管理などを行うBtoB SaaS開発。\nScalebaseペイメント:  請求書/債権/法人間決済サービスの開発。  Next.js/Scala/PlayFrameworkでFE/BE開発",
       "startDate": "2022-09-01",
       "endDate": "2025-05-31",
       "techs": "Next.js/React/Typescript/PlayFramework/Scala/AWS"
     },
     {
       "title": "TerraDrone株式会社(副業)",
-      "description": "測量データのデータ管理・分析クラウドであるTerraCloudの開発に従事。主にUI/UXの改善を行う",
+      "description": "測量データのデータ管理・分析クラウドであるTerraCloudの開発。主にUI/UXの改善を行う",
       "startDate": "2024-04-01",
       "endDate": "2024-06-30",
       "techs": "Next.js/React/Typescript"
     },
     {
       "title": "株式会社エイチ",
-      "description": "叡知オフィスクラウド: コワーキングスペース・会議室の利用予約システム、経費精算までワンストップなシステム開発・自社内CS・セールスの利用する社内システム開発などの開発。",
+      "description": "叡知オフィスクラウド: コワーキングスペース・会議室の利用予約システム、経費精算までワンストップなシステム開発・自社内CS・セールスの利用する社内システムなどの開発",
       "startDate": "2021-07-01",
       "endDate": "2022-08-31",
       "techs": "Vue.js/Nuxt.js/Golang/Echo/GCP"
