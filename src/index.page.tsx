@@ -29,10 +29,37 @@ const WorkView = (props: {
   );
 };
 
+const PersonalDevelopmentView = (props: {
+  title: string;
+  description: string;
+  url: string;
+}) => {
+  return (
+    <div class="personal-development-row">
+      <div class="personal-development-head">
+        <h3>{props.title}</h3>
+        <a
+          href={props.url}
+          class="personal-development-link"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {props.url}
+        </a>
+      </div>
+      <p class="personal-development-description">
+        {props.description}
+      </p>
+    </div>
+  );
+};
+
 export default (
-  { comp, works: { list } }: Lume.Data,
+  { comp, works: { list }, personalDevelopment }: Lume.Data,
   _helpers: Lume.Helpers,
 ) => {
+  const personalDevelopmentList = personalDevelopment?.list ?? [];
+
   return (
     <div class="page-wrapper">
       <section class="profile">
@@ -46,9 +73,12 @@ export default (
         <comp.Title>
           個人開発
         </comp.Title>
-        <div>
-          - 色々なWebサイト制作・運用<br />
-          - ブログ執筆
+        <div class="personal-development-section">
+          {personalDevelopmentList.map((item: {
+            title: string;
+            description: string;
+            url: string;
+          }) => <PersonalDevelopmentView {...item} />)}
         </div>
       </section>
 

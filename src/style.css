@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  gap: 16px;
+  gap: 24px;
 }
 .image-wrapper {
   width: 64px;
@@ -30,6 +30,36 @@
   gap: 8px;
   max-width: 70vw;
   margin: 0 auto;
+}
+
+.personal-development-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.personal-development-row {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.personal-development-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.personal-development-link {
+  color: #4a4a4a;
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+
+.personal-development-description {
+  font-size: 0.9rem;
+  color: #808080;
 }
 
 .work-row {

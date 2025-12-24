@@ -3,6 +3,9 @@ import favicon from "lume/plugins/favicon.ts";
 import jsx from "lume/plugins/jsx.ts";
 import icons from "lume/plugins/icons.ts";
 import works from "./src/posts/works.json" with { type: "json" };
+import personalDevelopment from "./src/posts/personalDevelopment.json" with {
+  type: "json",
+};
 
 const site = lume({
   src: "./src",
@@ -22,6 +25,7 @@ site.use(favicon({
 site.copy("_assets");
 
 site.data("works", works);
+site.data("personalDevelopment", personalDevelopment);
 
 // Basic function to minify CSS
 function minifyCSS(css: string) {
