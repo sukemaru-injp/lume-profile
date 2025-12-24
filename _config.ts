@@ -9,6 +9,7 @@ import personalDevelopment from "./src/posts/personalDevelopment.json" with {
 
 const site = lume({
   src: "./src",
+  location: new URL("https://sukemaru-injp.github.io/lume-profile/"),
   server: {
     open: true,
   },
