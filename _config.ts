@@ -2,6 +2,7 @@ import lume from "lume/mod.ts";
 import favicon from "lume/plugins/favicon.ts";
 import jsx from "lume/plugins/jsx.ts";
 import icons from "lume/plugins/icons.ts";
+import basePath from "lume/plugins/base_path.ts";
 import works from "./src/posts/works.json" with { type: "json" };
 import personalDevelopment from "./src/posts/personalDevelopment.json" with {
   type: "json",
@@ -14,6 +15,8 @@ const site = lume({
     open: true,
   },
 });
+site.use(basePath());
+
 site.add("/reset.css");
 
 site.use(jsx());
