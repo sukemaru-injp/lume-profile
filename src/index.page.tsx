@@ -4,6 +4,7 @@ export const title = "sukemaru|aboutme";
 export const layout = "_includes/layout.tsx";
 
 const WorkView = (props: {
+  key: string;
   title: string;
   description: string;
   url: string;
@@ -30,6 +31,7 @@ const WorkView = (props: {
 };
 
 const PersonalDevelopmentView = (props: {
+  key: string;
   title: string;
   description: string;
   url: string;
@@ -78,7 +80,7 @@ export default (
             title: string;
             description: string;
             url: string;
-          }) => <PersonalDevelopmentView {...item} />)}
+          }) => <PersonalDevelopmentView key={item.title} {...item} />)}
         </div>
       </section>
 
@@ -94,7 +96,7 @@ export default (
             startDate: string;
             endDate: string;
             techs: string;
-          }) => <WorkView {...work} />)}
+          }) => <WorkView key={work.title} {...work} />)}
         </div>
       </section>
     </div>
