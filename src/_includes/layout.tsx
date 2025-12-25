@@ -8,6 +8,7 @@ export default (
       <head>
         <title>{title}</title>
         <meta name="description" content="sukemaru.net" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="/reset.css" />
         <link rel="stylesheet" href="/style.css" />
       </head>
