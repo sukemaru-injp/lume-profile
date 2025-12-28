@@ -36,6 +36,11 @@
   max-width: 70vw;
   margin: 0 auto;
 }
+@media (max-width: 600px) {
+  .basic-section {
+    max-width: 95vw;
+  }
+}
 
 .personal-development-section {
   display: flex;
@@ -99,4 +104,23 @@
 .work-description {
   font-size: 0.9rem;
   color: #808080;
+}
+
+.blogs-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 100%;
+}
+
+.blog-date {
+  color: #808080;
+  font-size: 0.9rem;
+}
+
+.blog-row a {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }

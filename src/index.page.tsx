@@ -64,13 +64,6 @@ export default (
 
   return (
     <div class="page-wrapper">
-      <section class="profile">
-        <div class="image-wrapper">
-          <img src="/_assets/profile.png" class="img" />
-        </div>
-        <comp.Title>クボタリョウスケ</comp.Title>
-      </section>
-
       <section class="basic-section">
         <comp.Title>
           個人開発

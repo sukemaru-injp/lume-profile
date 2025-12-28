@@ -7,6 +7,7 @@ import works from "./src/posts/works.json" with { type: "json" };
 import personalDevelopment from "./src/posts/personalDevelopment.json" with {
   type: "json",
 };
+import blogs from "./src/posts/blogs.json" with { type: "json" };
 
 const site = lume({
   src: "./src",
@@ -30,6 +31,7 @@ site.copy("_assets");
 
 site.data("works", works);
 site.data("personalDevelopment", personalDevelopment);
+site.data("blogs", blogs);
 
 // Basic function to minify CSS
 function minifyCSS(css: string) {

@@ -40,4 +40,20 @@ cms.document({
   ],
 });
 
+cms.document({
+  name: "blogs",
+  store: "src:posts/blogs.json",
+  fields: [
+    {
+      name: "list",
+      type: "object-list",
+      fields: [
+        { name: "title", type: "text" },
+        { name: "date", type: "date" },
+        { name: "url", type: "url" },
+      ],
+    },
+  ],
+});
+
 export default cms;
