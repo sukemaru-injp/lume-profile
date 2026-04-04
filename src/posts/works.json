@@ -33,10 +33,10 @@
   "list": [
     {
       "title": "Sapeet株式会社",
-      "description": "治療院向けのソフトウェアカルティシセイカルテ/マルチカルテの開発",
+      "description": "治療院向けのソフトウェアカルティシセイカルテ/マルチカルテの開発\nカルティポイントの立ち上げ",
       "url": "https://sapeet.com/",
       "startDate": "2025-05-12",
-      "techs": "React/Hono/Typescript/AWS"
+      "techs": "React/Hono/Typescript/kysely/AWS(lambda,ECS,RDS,SNS...)/terraform"
     },
     {
       "title": "Alp株式会社",
