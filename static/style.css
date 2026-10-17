@@ -7,7 +7,7 @@
 }
 @media (max-width: 600px) {
   .page-wrapper {
-    padding: 16px 24px;
+    padding: 8px 12px;
   }
 }
 .image-wrapper {
@@ -77,6 +77,10 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.work-row + .work-row {
+  border-top: 1px solid #808080;
 }
 
 @media (max-width: 600px) {
