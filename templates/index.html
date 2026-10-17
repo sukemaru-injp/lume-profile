@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% set works = load_data(path="data/works.toml") %}
+{% set personal_development = load_data(path="data/personalDevelopment.toml") %}
+<div class="page-wrapper">
+  <section class="basic-section">
+    {{ <ui.title text="個人開発" /> }}
+    <div class="personal-development-section">
+      {% for item in personal_development.list %}
+      <div class="personal-development-row">
+        <div class="personal-development-head">
+          <h3>{{ item.title }}</h3>
+          <a href="{{ item.url }}" class="personal-development-link" rel="noopener noreferrer" target="_blank">{{ item.url }}</a>
+        </div>
+        <p class="personal-development-description">{{ item.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  <section class="basic-section">
+    {{ <ui.title text="Works" /> }}
+    <div class="works-section">
+      {% for work in works.list %}
+      <div class="work-row">
+        <div class="work-head">
+          <h3>{{ work.title }}</h3>
+          <p class="work-dates">{{ work.startDate | date(format="%Y.%m") }} - {% if work.endDate is defined and work.endDate %}{{ work.endDate | date(format="%Y.%m") }}{% else %}現在{% endif %}</p>
+        </div>
+        <p class="work-description">{{ work.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock content %}

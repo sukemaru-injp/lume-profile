@@ -1,0 +1,35 @@
+[[list]]
+title = "Eco-Pork株式会社"
+description = "養豚場ソリューションエンジニア。出荷最適化、モニタリング、出荷精算管理など複数のソリューションを提供している。\n日本、米国を中心にプロダクトを展開中。"
+url = "https://www.eco-pork.com/"
+startDate = "2026-06-01"
+techs = ""
+
+[[list]]
+title = "Sapeet株式会社"
+description = "治療院向けのソフトウェアカルティシセイカルテ/マルチカルテの開発\nカルティポイントの立ち上げを担当した。"
+url = "https://sapeet.com/"
+startDate = "2025-05-12"
+endDate = "2026-05-31"
+techs = "React/Hono/Typescript/kysely/AWS(lambda,ECS,RDS,SNS...)/terraform"
+
+[[list]]
+title = "Alp株式会社"
+description = "Scalebase: サブスクリプションビジネスにおける、契約管理・請求管理などを行うBtoB SaaS開発。\nScalebaseペイメント:  請求書/債権/法人間決済サービスの開発。  Next.js/Scala/PlayFrameworkでFE/BE開発"
+startDate = "2022-09-01"
+endDate = "2025-05-31"
+techs = "Next.js/React/Typescript/PlayFramework/Scala/AWS"
+
+[[list]]
+title = "TerraDrone株式会社(副業)"
+description = "測量データのデータ管理・分析クラウドであるTerraCloudの開発。主にUI/UXの改善を行う"
+startDate = "2024-04-01"
+endDate = "2024-06-30"
+techs = "Next.js/React/Typescript"
+
+[[list]]
+title = "株式会社エイチ"
+description = "叡知オフィスクラウド: コワーキングスペース・会議室の利用予約システム、経費精算までワンストップなシステム開発・自社内CS・セールスの利用する社内システムなどの開発"
+startDate = "2021-07-01"
+endDate = "2022-08-31"
+techs = "Vue.js/Nuxt.js/Golang/Echo/GCP"
