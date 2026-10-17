@@ -10,9 +10,8 @@
 - `static/` contains CSS, JavaScript, images, icons, and favicons copied to output.
 - Generated output goes to `public/` and is not committed.
 - `PLAN_zola.md` tracks migration progress; `REVIEW_zola.md` records validation.
-- Legacy `src/`, `_config.ts`, `_cms.ts`, and `deno.json` remain for comparison
-  and rollback until production verification and CMS usage review are complete.
-  Do not update legacy JSON as the source of truth for the Zola site.
+- Legacy Lume source, CMS configuration, and Deno configuration were removed
+  with user approval. Use Git history for pre-migration comparison or rollback.
 
 ## Build, Test, and Development Commands
 - `zola serve --extra-watch-path data`: serve locally with data live reload.
@@ -26,9 +25,9 @@
 - Use Tera 2 syntax for templates and components; do not add JSX tooling.
 - Keep dates in data as quoted `YYYY-MM-DD` strings. Omit `endDate` for ongoing
   work. Preserve description newlines and existing fields.
-- `works.toml` uses `list` for display; the distinct legacy `works` array and
-  root `title` are preserved data, not duplicate records to silently discard.
-- Keep JSON-derived strings escaped as text. Do not apply `safe` indiscriminately.
+- `works.toml` uses `list` for display. The unused legacy `works` array and test
+  `title` were removed with user approval; do not restore them for new entries.
+- Keep data strings escaped as text. Do not apply `safe` indiscriminately.
 - No dedicated formatter is required; keep TOML and HTML consistent with nearby
   code. Do not add build dependencies solely for formatting.
 

@@ -19,11 +19,14 @@ workflow から直接参照する Action は GitHub 公式のみ・完全なコ�
 Works の最新情報を同じ PR に追加してから、ユーザーが main に反映する予定。
 本番公開・GitHub / DNS 設定変更は未実施。
 検証結果とレビュー方法は [REVIEW_zola.md](REVIEW_zola.md) を参照。
-旧 Lume 構成はレビュー・本番確認・CMS 利用確認まで比較と復旧のため保持する。
+ユーザー許可により旧 Lume 構成・生成物・キャッシュを削除済み。
+未使用だった `works.toml` の `[[works]]` とテスト用 `title` も削除し、
+画面で使う `[[list]]` を保持した。移行前の実装とデータは Git 履歴から復元する。
 
 ## 現状の棚卸し
 
-リポジトリと手元の `_site/` を確認した結果。`_site/` は過去の生成物のため、
+以下の棚卸しと移植手順は移行前の記録。旧ファイルは掃除済み。
+当初はリポジトリと手元の `_site/` を確認した。`_site/` は過去の生成物のため、
 実装時には現行ソースの再ビルド結果・本番表示とも比較する。
 
 | 対象 | 現状 | 移行時の扱い |
@@ -69,7 +72,7 @@ Works の最新情報を同じ PR に追加してから、ユーザーが main �
   現在の workflow は `main` push で公開する構成。
 - [ ] Settings で Environment の保護ルールを確認。
 - [ ] DNS 管理画面で現在の apex / www のレコードを記録する。
-- [ ] Lume CMS を実際に使っているか確認する。
+- [x] ユーザーの旧構成削除許可により、Lume CMS 設定も撤去。更新は TOML 直接編集。
 
 ### 本番ドメインの確認
 
@@ -227,13 +230,8 @@ Tera のデータ読み込み・テンプレート構成は
 
 ### CMS の扱い
 
-Zola への置換だけでは Lume CMS の編集画面は引き継がれない。
-現在のリポジトリには CMS 設定があるが、起動タスクや利用実態は確認できていない。
-
-- [ ] 未使用なら、TOML を直接編集して Git に反映する運用を README に記載。
-- [ ] 利用中なら、編集可能な項目と更新・公開手順を記録し、TOML 編集運用への
-  移行可否を確認する。編集 UI が必須なら代替 CMS の選定・接続を切替前の条件にする。
-- [ ] 編集経路を確定するまで `_cms.ts` の削除を完了扱いにしない。
+- [x] コンテンツは TOML を直接編集して Git に反映する運用を README に記載。
+- [x] ユーザーの削除許可に基づき、旧 Lume CMS 設定 `_cms.ts` を撤去。
 
 ## 5. ローカル検証
 
@@ -318,7 +316,8 @@ GitHub の [公式 Release の配布ファイル一覧](https://github.com/getzo
 
 固定した Action SHA の一覧・確認結果は [REVIEW_zola.md](REVIEW_zola.md) を参照。
 公式 Linux 配布アーカイブを一時取得し、固定 SHA-256 との一致と内容を確認済み。
-Linux バイナリ自体の実行と GitHub Actions の実行は未実施。
+PR の GitHub Actions で Linux 上の導入・check / build が成功済み。
+本番デプロイは main へのマージ後に確認する。
 
 - [x] 上記の Action と公式配布バイナリ導入方法についてユーザー確認を得る。
 - [x] 了承後に Ubuntu runner、Action の SHA、権限を確定し workflow を実装する。
@@ -327,7 +326,7 @@ Linux バイナリ自体の実行と GitHub Actions の実行は未実施。
 - [x] deploy job に `github-pages` environment と deployment URL を設定。
 - [x] Pages の同時公開を避ける concurrency を設定する。
 - [x] PR はデプロイせず check / build と成果物の保存だけを行う。
-- [ ] 実際の GitHub Actions 実行を検証してから本番切替を完了扱いにする。
+- [x] PR の GitHub Actions で導入・check / build 成功を確認。本番切替は別途確認。
 
 ### ドメインを保つための条件
 
@@ -359,9 +358,9 @@ DNS 変更は通常不要。Settings → Pages の Custom domain と Enforce HTT
 
 ## 8. 移行後の整理と完了条件
 
-- [ ] 本番確認と復旧準備ができてから、旧 `src/`、`_config.ts`、`_cms.ts`、
-  Deno / Lume 専用設定を整理する。素材・未表示データ・編集経路の取りこぼしを確認。
-- [x] `.gitignore` に `public/` を追加。`_site/`・`_cache/` の除外整理は移行後に行う。
+- [x] ユーザー許可により、旧 `src/`、`_config.ts`、`_cms.ts`、`deno.json` を削除。
+  Zola に参照がないことを確認し、移植済みの画像・アイコン・計測と表示データを保持。
+- [x] `.gitignore` に `public/` を追加。不要な `_site/`・`_cache/` とその除外設定を削除。
 - [x] README を `zola serve` / `zola check` / `zola build`、
   TOML 編集方法、採用バージョン、公開手順、確認済みドメインに更新。
 - [x] `AGENTS.md` の Lume 固有の構成・コマンド・検証方法を Zola 用に更新。
@@ -379,7 +378,7 @@ DNS 変更は通常不要。Settings → Pages の Custom domain と Enforce HTT
 | 正規の本番 URL / base_url | https://sukemaru.net/（Pages API と HTTP 転送で確認済み） |
 | 移行前コミット SHA / 正常デプロイ | `863621d2ab9b28826714318885fed03dd8dfecd3` / [成功した旧デプロイ](https://github.com/sukemaru-injp/lume-profile/actions/runs/23980018327) |
 | 比較結果 | `REVIEW_zola.md`。画面画像は会話内で確認、ファイル保存は未実施 |
-| Lume CMS の利用有無 / 移行後の編集方法 | 利用有無はユーザー確認待ち。TOML 直接編集の手順は README に記載済み |
+| 移行後の編集方法 | TOML 直接編集。旧 CMS 設定はユーザー許可により削除済み |
 | 本番切替日 / Zola デプロイ | 未実施 |
 
 ## 実装時の補足（2026-10-17）
@@ -393,8 +392,8 @@ DNS 変更は通常不要。Settings → Pages の Custom domain と Enforce HTT
 - GA4 は production build 時に含め、serve 時は読み込まない。
 - Zola が追加する標準 `404.html` と未使用 `icons/note.svg` を除き、
   既存の公開ファイルのパスを維持。サイト内リンクは `get_url` で生成する。
-- Pages / DNS 設定の変更、実際の GitHub Actions 実行、本番アクセスでの
-  GA4 確認は未実施。本番切替と旧構成削除はレビュー後の作業。
+- PR の GitHub Actions は成功済み。Pages / DNS 設定の変更と本番アクセスでの
+  GA4 確認は未実施。旧構成の削除はユーザーレビュー・許可後に実施。
 
 ### CI 方針の訂正
 
@@ -404,4 +403,12 @@ DNS 変更は通常不要。Settings → Pages の Custom domain と Enforce HTT
 Git の移行前内容へ復元、追加した PR workflow は削除した。
 サイトの Zola 実装・ローカル検証結果は維持。
 その後ユーザー承認を得て、上記の GitHub 公式 Action・Zola 公式配布方式で
-workflow を実装した。未実行の CI と本番切替はレビュー後に確認する。
+workflow を実装し、PR CI の成功を確認した。本番切替は main マージ後に確認する。
+
+### 旧構成・未使用データの掃除
+
+ユーザー許可により、旧 `src/`、`_config.ts`、`_cms.ts`、`deno.json`、
+Lume の生成先 `_site/` とキャッシュ `_cache/` を削除。
+`data/works.toml` は未使用の `[[works]]` とテスト用ルート `title` を削除し、
+`[[list]]` の全フィールド・順序を保持した。
+掃除前後の Zola 出力 13 ファイルがバイト単位で一致し、表示・アセットに差分がないことを確認済み。

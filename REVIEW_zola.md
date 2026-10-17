@@ -5,7 +5,8 @@
 Works の最新情報を同じ PR に追加した後、ユーザーが main に反映する予定です。
 本番公開は未実施です。
 ユーザー承認後、GitHub 公式 Action と Zola 公式配布ファイルの直接取得で CI を更新済み。
-実際の GitHub Actions 実行・本番切替は未実施です。
+[PR の CI](https://github.com/sukemaru-injp/lume-profile/actions/runs/39025477025) は成功済み。
+本番切替は未実施です。
 
 ## 画面の確認
 
@@ -23,7 +24,9 @@ TOML 編集は `data/`、表示・スタイル編集は `templates/` と `static
 ## 変更内容
 
 - Lume の JSX / Vento を Tera 2 のテンプレートと共通コンポーネントへ移植。
-- JSON 3 ファイルを TOML に変換。未表示の項目・旧 `works` 配列も全件保持。
+- JSON 3 ファイルを TOML に変換。移行時に全フィールドを検証した上で、
+  ユーザー許可により未使用の旧 `works` 配列とテスト用 `title` を削除。
+  表示に使う `list` は全フィールド・順序を保持。
 - 元の CSS 3 ファイルを適用順に統合。reset CSS を先に読み込む構成も維持。
 - プロフィール画像、SVG、favicon、apple-touch-icon、GA4 JS を静的ファイル化。
   未使用の NoteIcon も SVG として保管。
@@ -42,7 +45,7 @@ TOML 編集は `data/`、表示・スタイル編集は `templates/` と `static
 | 旧 Lume の再ビルド | `deno task build` 成功。11 ファイル生成 |
 | Zola の検証・ビルド | `zola check` / `zola build` 成功 |
 | 旧環境に依存しないビルド | 設定・content・data・templates・static のみを一時ディレクトリにコピーして check / build 成功 |
-| データ変換 | 元 JSON と TOML をパースして比較。キー・値・型・配列順序・件数が全フィールド一致 |
+| データ変換 | 移行時に元 JSON と TOML の全フィールド一致を検証。その後未使用項目を整理し、表示用 list の全フィールドと順序の一致を再確認 |
 | ページ内容 | 両ページの正規化 DOM・文言が一致。追加メタ情報・URL の表現・GA4 の配置差を除外して比較 |
 | PC / モバイル比較 | 幅 1440 / 390 / 600 / 601px で両ページを比較。全表示要素の位置・サイズ・主要スタイル・末端テキストが一致 |
 | 画像等 | 既存の PNG / ICO / SVG / JS は旧出力とバイト単位で一致。ブラウザの画像読み込みも成功 |
@@ -50,7 +53,7 @@ TOML 編集は `data/`、表示・スタイル編集は `templates/` と `static
 | データの再読み込み | TOML に一時的に一覧項目を追加して serve の反映を確認し、その後元に復元。Blogs 4 件に戻っていることも確認 |
 | GA4 の出力 | production の両ページに読込タグ・初期化スクリプト各 1 回。serve には出力されない |
 | 公開範囲 | 出力に TOML / JSON / TSX / Vento が含まれない |
-| workflow | YAML と shell の構文確認済み。直接参照する Action が GitHub 公式かつ完全な SHA 固定であること、既定権限が読取のみであることも検証。実際の Zola CI 実行は未実施 |
+| workflow | YAML と shell の構文確認済み。直接参照する Action が GitHub 公式かつ完全な SHA 固定であること、既定権限が読取のみであることも検証。PR の Zola CI 成功済み |
 | ブラウザコンソール | Zola 版に error / warn なし |
 
 比較用の旧 HTML は GitHub Pages と同じ UTF-8 で配信するため、退避コピーにのみ
@@ -100,7 +103,7 @@ checkout の認証情報の保持も無効化している。
 
 - [x] ユーザーによるローカル画面のレビュー。
 - [ ] ユーザーが `data/works.toml` の `[[list]]` を最新情報に更新し、同じ PR へ追加。
-- [ ] Lume CMS の利用有無を確認。編集 UI が必要な場合はその移行方法を決める。
+- [x] ユーザーの掃除許可に基づき旧 CMS 設定を削除し、TOML 直接編集へ移行。
 - [ ] 本番切替前に DNS 管理画面の設定と Pages environment の保護ルールを確認。
 - [x] CI の Action / ツール導入案についてユーザー確認を得て実装。
 - [ ] PR の GitHub Actions 成功、必要に応じレビュー画像を添付。
@@ -108,16 +111,17 @@ checkout の認証情報の保持も無効化している。
 - [ ] 本番アクセスで GA4 の実計測を確認。ローカルではタグ出力までの検証。
 - [ ] 外部サイトのリンクを実際に開いて確認。移行前後の URL 一致は確認済みだが、
   すべての外部サイトの応答・ログイン要否までは検証していない。
-- [ ] 本番確認と CMS 確認後、旧 `src/`・Lume / Deno 設定を整理。
+- [x] ユーザー許可により旧 `src/`・Lume / Deno 設定・生成物・キャッシュを削除。
 
-旧構成は比較・復旧用に残しています。Zola 版の編集対象は `data/*.toml` です。
+旧構成は削除済みです。移行前コミットの Git 履歴から比較・復旧できます。
+Zola 版の編集対象は `data/*.toml` です。
 本番切替後に問題があれば、移行前のソースと workflow をまとめて復元して再公開します。
 
 ## Works の更新を同じ PR に追加する方法
 
 ローカルは `migrate-zola` ブランチに切り替え済みです。
 `data/works.toml` の `[[list]]` を編集し、画面を確認してから次を実行します。
-`[[works]]` は旧データ保管用で、画面には使いません。
+未使用だった `[[works]]` とテスト用の `title` は削除済みです。
 
 ```sh
 git branch --show-current
@@ -131,3 +135,12 @@ git push
 push すると同じ PR が更新され、PR 用の check / build が実行されます。
 その後 main へマージすると、main push を契機に Pages のデプロイが開始します。
 デプロイ完了後に https://sukemaru.net/ の反映を確認してください。
+
+## 旧 Lume 構成の削除
+
+ユーザー許可に基づき `src/`、`_config.ts`、`_cms.ts`、`deno.json`、
+ローカルの `_site/`・`_cache/` と不要になった ignore 設定を削除。
+`data/works.toml` の旧 `[[works]]` とテスト用ルート `title` も削除した。
+掃除前後で表示用 `list` の内容・順序が一致することと、
+Zola の全出力 13 ファイルがバイト単位で一致することを確認済み。
+旧構成なしで `zola check` / `zola build` も成功。

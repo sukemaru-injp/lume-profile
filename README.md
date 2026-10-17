@@ -1,6 +1,6 @@
 # My Profile
 
-Frontend Developer Sukemaru のプロフィールサイト。
+Sukemaru のプロフィールサイト。
 
 URL: https://sukemaru.net/
 
@@ -54,12 +54,11 @@ url = "https://example.com/article"
 説明文中の `\n` は保持されますが、表示上は従来どおり通常の空白として扱います。
 複数行文字列を使う場合は、不要な先頭・末尾の改行を追加しないようにしてください。
 
-`works.toml` のルートの `title` と `[[works]]` は旧データ保管用です。
-`[[list]]` と説明文に差があるため、削除せず保持しています。
+`works.toml` は画面で使う `[[list]]` だけを管理します。
+未使用だった旧 `[[works]]` とテスト用の `title` は削除済みです。
 `data/` のファイル自体は公開しません。
 
 TOML を編集 → ローカルで表示確認 → PR 作成、の順で更新します。
-Lume CMS の編集画面は Zola の更新経路には接続していません。
 
 ## 公開
 
@@ -84,8 +83,5 @@ Pages の Custom domain・HTTPS・DNS はそのまま維持します。
 
 [移行計画と進捗](PLAN_zola.md) / [ローカル検証結果](REVIEW_zola.md)
 
-レビュー・本番切替が済むまで、旧 `src/`、`_config.ts`、`_cms.ts`、`deno.json` を
-比較・復旧用に残しています。日常の編集対象は上記の Zola 側です。
-旧 `src/posts/*.json` を編集しても Zola 版には反映されません。
-Lume CMS の利用確認と本番確認が済んだ後に旧構成を整理します。
-
+旧 `src/`、`_config.ts`、`_cms.ts`、`deno.json` は削除済みです。
+移行前の実装・データ・配信設定は Git 履歴から参照・復元できます。
