@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ section.title }}</title>
+    <meta name="description" content="{{ config.description }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ get_url(path='reset.css') }}">
+    <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+    <link rel="icon" sizes="32x32" href="{{ get_url(path='favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ get_url(path='apple-touch-icon.png') }}">
+  </head>
+  <body>
+    <main class="main">
+      {% include "partials/nav.html" %}
+      {% include "partials/profile.html" %}
+      {% block content %}{% endblock content %}
+    </main>
+    {% include "partials/footer.html" %}
+    {% if config.mode == "build" %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config.extra.ga4_id }}"></script>
+    <script src="{{ get_url(path='_assets/ga4.js') }}"></script>
+    {% endif %}
+  </body>
+</html>

@@ -1,0 +1,13 @@
+base_url = "https://sukemaru.net"
+title = "sukemaru"
+description = "sukemaru.net"
+default_language = "ja"
+output_dir = "public"
+compile_sass = false
+build_search_index = false
+generate_feeds = false
+generate_sitemap = false
+generate_robots_txt = false
+
+[extra]
+ga4_id = "G-EDV6N0DZYS"

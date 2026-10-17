@@ -1,0 +1,20 @@
+<footer class="footer">
+  <div class="icons">
+    <div class="iconWrapper">
+      <a href="https://github.com/sukemaru-injp" target="_blank" rel="noopener noreferrer">
+        <img src="{{ get_url(path='icons/ant/github-outlined.svg') }}" alt="GitHub" style="max-width: 100%;max-height: 100%; color: #808080;">
+      </a>
+    </div>
+    <div class="iconWrapper">
+      <a href="https://www.facebook.com/profile.php?id=100029782609298" target="_blank" rel="noopener noreferrer">
+        <img src="{{ get_url(path='icons/ant/facebook-outlined.svg') }}" alt="Facebook" style="max-width: 100%;max-height: 100%;">
+      </a>
+    </div>
+    <div class="iconWrapper">
+      <a href="https://x.com/Inakamon_0" target="_blank" rel="noopener noreferrer">
+        <img src="{{ get_url(path='icons/ant/x-outlined.svg') }}" alt="X" style="max-width: 100%;max-height: 100%;">
+      </a>
+    </div>
+  </div>
+  <p class="text">&copy; {{ now() | date(format="%Y", timezone="Asia/Tokyo") }} - sukemaru</p>
+</footer>

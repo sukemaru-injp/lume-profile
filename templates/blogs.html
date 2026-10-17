@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% set blogs = load_data(path="data/blogs.toml") %}
+<div class="page-wrapper">
+  <section class="basic-section">
+    {{ <ui.title text="Blogs" /> }}
+    <div class="blogs-section">
+      {% for blog in blogs.list | sort(attribute="date") | reverse %}
+      <div class="blog-row">
+        <p class="blog-date">{{ blog.date | date(format="%Y/%m/%d") }}</p>
+        <h4>{{ blog.title }}</h4>
+        <a href="{{ blog.url }}" rel="noopener noreferrer" target="_blank">{{ blog.url }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+{% endblock content %}
