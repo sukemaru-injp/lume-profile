@@ -2,7 +2,7 @@
 
 2026-10-17。Zola 0.23.6 で実装・ローカル検証済み。
 ユーザーレビュー済み。依頼により `migrate-zola` ブランチで PR 化します。
-Works の最新情報を同じ PR に追加した後、ユーザーが main に反映する予定です。
+Works の最新情報も同じ PR に追加済み。main への反映はユーザーが行う予定です。
 本番公開は未実施です。
 ユーザー承認後、GitHub 公式 Action と Zola 公式配布ファイルの直接取得で CI を更新済み。
 [PR の CI](https://github.com/sukemaru-injp/lume-profile/actions/runs/39025477025) は成功済み。
@@ -102,7 +102,7 @@ checkout の認証情報の保持も無効化している。
 ## レビュー後・本番切替時に残る確認
 
 - [x] ユーザーによるローカル画面のレビュー。
-- [ ] ユーザーが `data/works.toml` の `[[list]]` を最新情報に更新し、同じ PR へ追加。
+- [x] ユーザーが `data/works.toml` の `[[list]]` を最新情報に更新し、同じ PR へ追加。
 - [x] ユーザーの掃除許可に基づき旧 CMS 設定を削除し、TOML 直接編集へ移行。
 - [ ] 本番切替前に DNS 管理画面の設定と Pages environment の保護ルールを確認。
 - [x] CI の Action / ツール導入案についてユーザー確認を得て実装。
@@ -144,3 +144,9 @@ push すると同じ PR が更新され、PR 用の check / build が実行さ�
 掃除前後で表示用 `list` の内容・順序が一致することと、
 Zola の全出力 13 ファイルがバイト単位で一致することを確認済み。
 旧構成なしで `zola check` / `zola build` も成功。
+
+## Works 更新の検証
+
+Eco-Pork の追加と Sapeet の終了日・説明文更新を反映。
+`zola check` / `zola build` が成功し、職歴 5 件と先頭の表示順を確認。
+Eco-Pork は `2026.06 - 現在`、Sapeet は `2025.05 - 2026.05` と出力される。

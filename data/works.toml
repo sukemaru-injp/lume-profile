@@ -1,8 +1,16 @@
 [[list]]
+title = "Eco-Pork株式会社"
+description = "養豚場ソリューションエンジニア。出荷最適化、モニタリング、出荷精算管理など複数のソリューションを提供している。\n日本、米国を中心にプロダクトを展開中。"
+url = "https://www.eco-pork.com/"
+startDate = "2026-06-01"
+techs = ""
+
+[[list]]
 title = "Sapeet株式会社"
-description = "治療院向けのソフトウェアカルティシセイカルテ/マルチカルテの開発\nカルティポイントの立ち上げ"
+description = "治療院向けのソフトウェアカルティシセイカルテ/マルチカルテの開発\nカルティポイントの立ち上げを担当した。"
 url = "https://sapeet.com/"
 startDate = "2025-05-12"
+endDate = "2026-05-31"
 techs = "React/Hono/Typescript/kysely/AWS(lambda,ECS,RDS,SNS...)/terraform"
 
 [[list]]
